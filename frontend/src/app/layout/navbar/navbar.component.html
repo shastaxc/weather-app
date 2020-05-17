@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button
+          class="hide-gt-xs"
+          (click)="toggleSidenav()">
+    <i class="material-icons">menu</i>
+  </button>
+  <a mat-button
+     class="nav-header"
+     routerLink="/"
+     (click)="closeSidenav()">
+    <img class="nav-header"
+         src="/assets/images/hf-logo.png"
+         alt="HF Logo" />
+  </a>
+  <div class="flex-grow">
+  </div>
+  <app-nav-links [isHorizontal]="true"></app-nav-links>
+</mat-toolbar>

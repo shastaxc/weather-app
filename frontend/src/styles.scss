@@ -1,0 +1,32 @@
+@import "theme";
+@import "breakpoints";
+@import "help-classes";
+@import "material-mods";
+// Material Icons
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+// Material Typography
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: mat-color($primary-palette, lighter);
+}

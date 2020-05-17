@@ -1,0 +1,97 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["simple-import-sort", "import", "@typescript-eslint", "prettier"],
+  "extends": [
+    "plugin:import/typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": ["warn", { "usePrettierrc": true }],
+    "simple-import-sort/sort": ["warn", {
+      "groups": [
+        // Side effect imports.
+        ["&\\u0000"],
+        // Packages. `@angular` related packages come first.
+        ["^@angular/.*", "^@?\\w"],
+        // Internal packages.
+        ["^(@)(/.*|$)",
+        // Parent imports. Put `..` last.
+        "^\\.\\.(?!/?$)", "^\\.\\./?$",
+        // Other relative imports. Put same-folder imports and `.` last.
+        "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+        // Style imports.
+        ["^.+\\.s?css$"]
+      ]
+    }],
+    "sort-imports": "off", // Let simple-import-sort handle sorting
+    "import/order": "off", // Let simple-import-sort handle sorting
+    "import/no-self-import": "error",
+    "import/no-cycle": "error",
+    "import/no-useless-path-segments": "warn",
+    "import/no-unresolved": "error",
+    "import/named": "error",
+    "import/namespace": "error",
+    "import/default": "error",
+    "import/export": "error",
+    "import/no-named-as-default": "warn",
+    "import/no-named-as-default-member": "warn",
+    "import/no-extraneous-dependencies": "warn",
+    "import/no-mutable-exports": "warn",
+    "import/no-commonjs": "error",
+    "import/no-amd": "error",
+    "import/no-nodejs-modules": "error",
+    "import/first": "warn",
+    "import/no-duplicates": "warn",
+    "import/extensions": ["warn", "never"],
+    "import/newline-after-import": "warn",
+    "import/no-unasssigned-import": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/interface-name-prefix": ["warn", { "prefixWithI": "always" }],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/array-type": "warn",
+    "@typescript-eslint/method-signature-style": "warn",
+    "@typescript-eslint/prefer-for-of": "error",
+    "prefer-const": "warn",
+    "no-warning-comments": "warn",
+    "no-restricted-imports": ["error", { "patterns": ["src/*"] }],
+    "eqeqeq": "warn",
+    "no-else-return": "warn",
+    "no-labels": "error",
+    "no-implicit-coercion": "warn",
+    "yoda": ["warn", "never", { "exceptRange": true }],
+    "no-invalid-this": "error",
+    "no-lone-blocks": "warn",
+    "no-new": "error",
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-return-assign": "error",
+    "no-self-compare": "warn",
+    "no-useless-call": "warn",
+    "require-await": "error",
+    // "line-comment-position": ["warn", { "position": "beside" }] // Conflict with Prettier bug https://github.com/prettier/prettier/issues/807,
+    "multiline-comment-style": "off",
+    "no-lonely-if": "warn",
+    "no-unneeded-ternary": "warn",
+    "spaced-comment": ["warn", "always"],
+    "no-var": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "directory": [
+          "tsconfig.json",
+          "tsconfig.app.json"
+        ]
+      }
+    }
+  }
+}

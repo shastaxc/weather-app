@@ -1,0 +1,33 @@
+<!-- Navbar -->
+<div id="navbar-wrapper"
+     #navbar>
+  <app-navbar></app-navbar>
+</div>
+
+<!-- Sidenav Container - wraps everything that should get overlay when open -->
+<mat-sidenav-container fullscreen
+                       (backdropClick)="closeSidenav()"
+                       (keydown.esc)="closeSidenav()"
+                       #sidenavContainer>
+  <!-- The interior of the sidenav itself -->
+  <mat-sidenav mode="over"
+               class="custom-scrollbar-child"
+               autoFocus="false"
+               [fixedInViewport]="true"
+               [fixedTopGap]="headerHeight"
+               disableClose
+               #sidenav>
+    <app-sidenav-innards></app-sidenav-innards>
+  </mat-sidenav>
+
+  <!-- Contrary to its name, this is actually content outside the sidenav -->
+  <mat-sidenav-content>
+    <!-- Main content -->
+    <div id="router-outlet-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-wrapper"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

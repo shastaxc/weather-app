@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  f-app:
+    container_name: "f-app"
+    build:
+      context: "frontend"
+      dockerfile: "docker/dev.dockerfile"
+      target: "dev"
+    volumes:
+      - "./frontend:/app/frontend"
+    ports:
+      - "4200:4200"
+    tty: true
+    stdin_open: false
+  f-test-unit:
+    container_name: "f-test-unit"
+    build:
+      context: "frontend"
+      dockerfile: "docker/dev.dockerfile"
+      target: "unit-test"
+    volumes:
+      - "./frontend:/app/frontend"
+      - "./.git:/app/.git"
+    tty: true
+    stdin_open: false
+  b-app:
+    container_name: "b-app"
+    build:
+      context: "backend"
+      dockerfile: "docker/dev.dockerfile"
+    volumes:
+      - "./backend:/app/backend"
+    env_file: "backend/environment/dev.env"
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: false

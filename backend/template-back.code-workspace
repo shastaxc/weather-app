@@ -1,0 +1,16 @@
+{
+	"folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "terminal.integrated.cwd": ".",
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features",
+      "editor.formatOnSave": true
+    },
+    "html.format.wrapAttributes": "force-aligned",
+    "html.format.wrapLineLength": 90,
+  }
+}

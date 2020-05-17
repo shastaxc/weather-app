@@ -1,0 +1,31 @@
+{
+	"folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "terminal.integrated.cwd": ".",
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "eslint.alwaysShowStatus": true,
+    "eslint.validate": [
+      "typescript"
+    ],
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features",
+      "editor.formatOnSave": true
+    },
+    "html.format.wrapAttributes": "force-aligned",
+    "html.format.wrapLineLength": 90,
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint"
+    ]
+  }
+}
