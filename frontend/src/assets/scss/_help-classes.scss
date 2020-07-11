@@ -248,7 +248,7 @@
 .custom-scrollbar,
 .custom-scrollbar-child > * {
   /* Firefox */
-  scrollbar-color: mat-color($foreground-palette, hint-text) rgba(0, 0, 0, 0.2);
+  scrollbar-color: #111 rgba(0, 0, 0, 0.2);
   scrollbar-width: thin;
  
   /* Webkit-based browsers */
@@ -260,7 +260,7 @@
     background-color: rgba(0, 0, 0, 0.2);
   }
   &::-webkit-scrollbar-thumb {
-    background-color: mat-color($foreground-palette, hint-text);
+    background-color: #111;
     border-radius: 0.3rem;
   }
   &::-webkit-scrollbar-thumb:vertical {

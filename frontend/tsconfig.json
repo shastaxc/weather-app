@@ -19,6 +19,7 @@
       "dom"
     ],
     "paths": {
+      "@/core/*": ["src/app/core/*"],
       "@/features/*": ["src/app/features/*"],
       "@/layout/*": ["src/app/layout/*"],
       "@/library/*": ["src/app/library/*"],
