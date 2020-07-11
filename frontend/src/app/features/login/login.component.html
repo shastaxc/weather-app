@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="page-container">
+  <div class="content-container">
+    <h1>My Weather</h1>
+    <form class="login-form"
+          [formGroup]="loginForm">
+      <label>EMAIL</label>
+      <input type="email"
+             [formControl]="emailControl" />
+      <label>PASSWORD</label>
+      <input type="password"
+             [formControl]="passwordControl" />
+      <button (click)="submit()">Log in</button>
+    </form>
+    Are you new here?
+    <a routerLink="/register">Sign up</a>
+  </div>
+</div>

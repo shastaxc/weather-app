@@ -9,6 +9,8 @@ import { API_ROUTE } from '../constants/routing.constants';
 import { AppUser, ICredentials } from '../models/user.model';
 import { valueExists } from '../util/helper-fns';
 
+const ROUTE = `${API_ROUTE}/auth`;
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private _jwt: BehaviorSubject<string>;
@@ -37,24 +39,28 @@ export class AuthService {
   }
 
   login(credentials: ICredentials): Observable<AppUser> {
-    return this.http.post(`${API_ROUTE}/auth/login`, credentials).pipe(
-      map((body: string) => {
-        const jwt: string = body;
-        // Store JWT in local storage to keep user logged in between sessions
-        localStorage.setItem('jwt', jwt);
-        // Put JWT in memory
-        this._jwt.next(jwt);
-
-        // Store currentUser in local storage to keep user logged in between sessions
-        const userJson: any = decodeJwt(jwt).user;
-        localStorage.setItem('currentUser', JSON.stringify(userJson));
-
-        // Put currentUser in memory
-        const user: AppUser = plainToClass(AppUser, userJson);
-        this._currentUser.next(user);
-        return user;
+    return this.http
+      .post(`${ROUTE}/login`, credentials, {
+        responseType: 'text',
       })
-    );
+      .pipe(
+        map((body: string) => {
+          const jwt: string = body;
+          // Store JWT in local storage to keep user logged in between sessions
+          localStorage.setItem('jwt', jwt);
+          // Put JWT in memory
+          this._jwt.next(jwt);
+
+          // Store currentUser in local storage to keep user logged in between sessions
+          const userJson: any = decodeJwt(jwt).user;
+          localStorage.setItem('currentUser', JSON.stringify(userJson));
+
+          // Put currentUser in memory
+          const user: AppUser = plainToClass(AppUser, userJson);
+          this._currentUser.next(user);
+          return user;
+        })
+      );
   }
 
   logout(): void {

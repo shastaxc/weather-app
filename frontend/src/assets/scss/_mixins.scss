@@ -24,3 +24,11 @@
 @mixin typography-caption() { font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif; }
 @mixin typography-button() { font: 500 14px/14px Roboto, "Helvetica Neue", sans-serif; }
 @mixin typography-input() { font: 400 inherit/1.125 Roboto, "Helvetica Neue", sans-serif; }
+
+@mixin content-container($width) {
+  width: 100%;
+  max-width: $width;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}

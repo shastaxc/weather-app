@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, Logger } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { map } from 'rxjs/operators';
 import { User, IAppUser } from 'src/common/models/user.model';
@@ -8,6 +8,8 @@ import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(private usersService: UserService, private jwtService: JwtService) {}
 
   validateUser(email: string, pass: string): Observable<User> {

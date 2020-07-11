@@ -1,1 +1,18 @@
-<p>user-registration works!</p>
+<div class="page-container">
+  <div class="content-container">
+    <h1>My Weather</h1>
+    Sign up for My Weather
+    <form class="registration-form"
+          [formGroup]="registrationForm">
+      <label>ENTER YOUR EMAIL</label>
+      <input type="email"
+             [formControl]="emailControl" />
+      <label>CHOOSE A PASSWORD</label>
+      <input type="password"
+             [formControl]="passwordControl" />
+      <button (click)="submit()">Sign up</button>
+    </form>
+    Already a member?
+    <a routerLink="/login">Log in</a>
+  </div>
+</div>

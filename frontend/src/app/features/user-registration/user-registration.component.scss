@@ -1,0 +1,24 @@
+@import 'mixins';
+@import 'breakpoints';
+@import 'variables';
+
+.page-container {
+  width: 100%;
+  height: 100%;
+  background-color: $dark-grey;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.content-container {
+  @include content-container($max-content-width);
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+}

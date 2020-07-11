@@ -21,3 +21,8 @@ export class User {
 export interface IAppUser {
   email: string,
 }
+
+export interface ICredentials {
+  email: string;
+  password: string;
+}
