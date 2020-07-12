@@ -1,0 +1,29 @@
+<form class="location-search-form elevate"
+      [formGroup]="locationSearchForm">
+  <div class="row-1">
+    <strong class="flex-grow color-lavender">ADD A LOCATION</strong>
+    <i class="fas fa-location-arrow color-lavender"></i>
+  </div>
+  <div class="row-2">
+    <input class="search-input"
+           tabindex="0"
+           type="text"
+           [formControl]="locationControl"
+           [autofocus]="true" />
+    <button class="submit-btn"
+            (click)="submit()"
+            #searchSubmitBtn>
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
+<ng-container *ngIf="(results$ | async) as results">
+  <div class="search-results-container"
+       #searchResultsContainer>
+    <div class="padding-spacer"></div>
+    <sfwa-search-result-list [results]="results"
+                             (selectedForTracking)="addToTracker($event)">
+    </sfwa-search-result-list>
+    <div class="padding-spacer"></div>
+  </div>
+</ng-container>

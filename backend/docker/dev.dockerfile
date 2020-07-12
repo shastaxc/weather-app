@@ -7,5 +7,5 @@ ENV PATH /app/backend/node_modules/.bin:$PATH
 
 EXPOSE 3000
 
-CMD ["/bin/sh", "-c", "npm run start:dev"]
+CMD ["/bin/sh", "-c", "npm run start:debug"]
 

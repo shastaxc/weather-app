@@ -1,18 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { SidenavService } from '@/layout/sidenav.service';
+import { AuthService } from '@/library/services/auth.service';
 
 @Component({
-  selector: 'app-nav-links',
+  selector: 'sfwa-nav-links',
   templateUrl: './nav-links.component.html',
   styleUrls: ['./nav-links.component.scss'],
 })
 export class NavLinksComponent {
-  @Input() isHorizontal: boolean;
+  constructor(private authService: AuthService, private router: Router) {}
 
-  constructor(private sidenavService: SidenavService) {}
-
-  closeSidenav(): void {
-    this.sidenavService.closeSidenav();
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="close color-lavender small-label"
+       (click)="removeFromTracking()">CLOSE</div>
+  <div class="card-header color-lavender">{{city}}, {{state}}</div>
+  <div>
+    {{dateSearched | date: 'EEEE, MMMM d'}}
+  </div>
+  <div>
+    {{weatherDesc}}
+  </div>
+  <div class="featured-data">
+    <img [src]="'http://openweathermap.org/img/wn/' + weatherIconCode + '@2x.png'" />
+    {{temperature | number: '1.0-0'}}°F
+  </div>
+  <div class="minor-detail-list">
+    <div class="minor-detail">
+      <span class="label">Pressure</span>
+      <span class="value">{{pressure}} hpa</span>
+    </div>
+    <div class="minor-detail">
+      <span class="label">Humidity</span>
+      <span class="value">{{humidity}}%</span>
+    </div>
+    <div class="minor-detail">
+      <span class="label">Sunrise</span>
+      <span class="value">{{sunrise | date: 'shortTime' | lowercase }}</span>
+    </div>
+    <div class="minor-detail">
+      <span class="label">Sunset</span>
+      <span class="value">{{sunset | date: 'shortTime' | lowercase }}</span>
+    </div>
+  </div>
+</div>

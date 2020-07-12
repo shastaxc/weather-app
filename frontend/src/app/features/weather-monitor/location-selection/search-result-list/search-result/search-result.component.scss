@@ -1,0 +1,25 @@
+@import 'variables';
+
+.search-result {
+  display: flex;
+  padding: 15px;
+  background-color: $light-grey;
+  cursor: pointer;
+}
+
+.location-label {
+  color: $lavender;
+  font-weight: bold;
+}
+
+.add-icon {
+  display: flex;
+  align-items: center;
+  color: $lavender;
+}
+
+.no-result {
+  display: flex;
+  padding: 15px;
+  background-color: $light-grey;
+}

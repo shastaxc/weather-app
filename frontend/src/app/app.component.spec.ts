@@ -22,9 +22,4 @@ describe('AppComponent', () => {
     const app = spectator.component;
     expect(app).toBeTruthy();
   });
-
-  it("should have as title 'frontend'", () => {
-    const app = spectator.component;
-    expect(app.title).toEqual('frontend');
-  });
 });

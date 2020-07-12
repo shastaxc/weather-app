@@ -30,6 +30,7 @@ services:
       dockerfile: "docker/dev.dockerfile"
     volumes:
       - "./backend:/app/backend"
+      - "/app/backend/dist"
     env_file: "backend/environment/dev.env"
     ports:
       - "3000:3000"

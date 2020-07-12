@@ -1,18 +1,8 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button
-          class="hide-gt-xs"
-          (click)="toggleSidenav()">
-    <i class="material-icons">menu</i>
-  </button>
-  <a mat-button
-     class="nav-header"
-     routerLink="/"
-     (click)="closeSidenav()">
-    <img class="nav-header"
-         src="/assets/images/hf-logo.png"
-         alt="HF Logo" />
-  </a>
-  <div class="flex-grow">
+<div class="navbar">
+  <div class="content-container">
+    <h1 class="nav-header">My Weather</h1>
+    <div class="flex-grow">
+    </div>
+    <sfwa-nav-links></sfwa-nav-links>
   </div>
-  <app-nav-links [isHorizontal]="true"></app-nav-links>
-</mat-toolbar>
+</div>

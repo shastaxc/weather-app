@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'mixins';
+
+.page-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: $lightest-grey;
+  color: black;
+}
+
+.content-container {
+  @include content-container($min-content-width, $max-content-width);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.weather-details-container {
+  margin-top: 30px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}

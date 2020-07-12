@@ -1,6 +1,21 @@
 @import 'variables';
+@import 'breakpoints';
+@import 'mixins';
+
+.navbar {
+  @include typography-body-1;
+  background-color: $dark-grey;
+  height: 50px;
+}
 
 .nav-header {
+  color: white;
+  margin: 0;
+}
+
+.content-container {
+  @include content-container($min-content-width, $max-content-width);
+  display: flex;
   height: 100%;
-  object-fit: contain;
+  align-items: center;
 }

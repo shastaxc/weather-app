@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
 .d-inline-block {
   display: inline-block;
 }
@@ -248,7 +251,7 @@
 .custom-scrollbar,
 .custom-scrollbar-child > * {
   /* Firefox */
-  scrollbar-color: mat-color($foreground-palette, hint-text) rgba(0, 0, 0, 0.2);
+  scrollbar-color: #111 rgba(0, 0, 0, 0.2);
   scrollbar-width: thin;
  
   /* Webkit-based browsers */
@@ -260,7 +263,7 @@
     background-color: rgba(0, 0, 0, 0.2);
   }
   &::-webkit-scrollbar-thumb {
-    background-color: mat-color($foreground-palette, hint-text);
+    background-color: #111;
     border-radius: 0.3rem;
   }
   &::-webkit-scrollbar-thumb:vertical {
@@ -285,4 +288,37 @@
 
 .z-2 {
   z-index: 2;
+}
+
+.elevate {
+  box-shadow: -1px 2px 5px #888888
+}
+
+.color-lavender {
+  color: $lavender;
+}
+
+.fill-lavender {
+  background-color: $lavender;
+}
+
+.small-label {
+  @include typography-small-label;
+}
+
+.round-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.color-white {
+  color: white;
+}
+
+.border-lavender {
+  border: 1px solid $lavender;
 }
