@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import { AppUser, ICredentials } from '@/library/models/user.model';
+import { ICredentials } from '@/library/models/user.model';
 import { AuthService } from '@/library/services/auth.service';
 import { MyValidators } from '@/library/util/form-validators';
 
