@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 
 import { SearchResultListComponent } from './search-result-list.component';
 

@@ -1,7 +1,7 @@
 import { Controller, Logger, Get, Param } from '@nestjs/common';
 import { Routes } from 'src/common/constants/route.const';
 import { WeatherService } from './weather.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IWeatherSearchResponse, IOpenWeatherMapsLocation, IWeatherData, ILocationWeatherPair } from 'src/common/models/weather.model';
 import { map } from 'rxjs/operators';
 
