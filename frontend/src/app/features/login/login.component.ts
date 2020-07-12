@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import { AppUser, ICredentials } from '@/library/models/user.model';
+import { ICredentials } from '@/library/models/user.model';
 import { AuthService } from '@/library/services/auth.service';
 import { MyValidators } from '@/library/util/form-validators';
 
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       password: this.passwordControl.value,
     };
     this.authService.login(credentials).subscribe(
-      (user: AppUser) => {
+      () => {
         this.isProcessing = false;
         this._authenticationError.next(false);
         this.router.navigate(['/weather-monitor']);

@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 
 import { WeatherDetailCardComponent } from './weather-detail-card.component';
 

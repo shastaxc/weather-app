@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import { AppUser, ICredentials } from '@/library/models/user.model';
+import { ICredentials } from '@/library/models/user.model';
 import { UserService } from '@/library/services/user.service';
 import { MyValidators } from '@/library/util/form-validators';
 
@@ -53,7 +53,7 @@ export class UserRegistrationComponent {
       password: this.passwordControl.value,
     };
     this.userService.createUser(credentials).subscribe(
-      (user: AppUser) => {
+      () => {
         this.isProcessing = false;
         this.router.navigate(['/login']);
       },

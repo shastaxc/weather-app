@@ -15,15 +15,16 @@
             #searchSubmitBtn>
       <i class="fas fa-search"></i>
     </button>
+    <ng-container *ngIf="results$ | async; then showResults">
+    </ng-container>
   </div>
 </form>
-<ng-container *ngIf="(results$ | async) as results">
+
+<ng-template #showResults>
   <div class="search-results-container"
        #searchResultsContainer>
-    <div class="padding-spacer"></div>
-    <sfwa-search-result-list [results]="results"
+    <sfwa-search-result-list [results]="results$ | async"
                              (selectedForTracking)="addToTracker($event)">
     </sfwa-search-result-list>
-    <div class="padding-spacer"></div>
   </div>
-</ng-container>
+</ng-template>

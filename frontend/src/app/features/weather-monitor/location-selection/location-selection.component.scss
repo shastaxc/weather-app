@@ -2,6 +2,9 @@
 
 $location-search-max-width-num: 400;
 $location-search-max-width: $location-search-max-width-num + 0px;
+$location-search-max-height-num: 45;
+$location-search-max-height: $location-search-max-height-num + 0px;
+
 $location-search-padding-num: 20;
 $location-search-padding: $location-search-padding-num + 0px;
 
@@ -28,31 +31,32 @@ $location-search-padding: $location-search-padding-num + 0px;
 
 .row-2 {
   display: flex;
+  position: relative;
 }
 
 .search-input {
   flex-grow: 1;
   box-sizing: border-box;
   min-width: 145px;
+  max-height: $location-search-max-height;
 }
 
 .submit-btn {
   background-color: $lavender;
   color: white;
-  width: 45px;
-  height: 45px;
+  width: $location-search-max-height;
+  max-height: $location-search-max-height;
   flex-shrink: 0;
 }
 
 .search-results-container {
+  position: absolute;
+  width: 100%;
   display: flex;
   z-index: 1;
   margin: 0 auto;
-  transform: translateY(-$location-search-padding);
+  transform: translateY($location-search-max-height);
   max-width: $location-search-max-width;
-  .padding-spacer {
-    width: $location-search-padding;
-  }
   sfwa-search-result-list {
     flex-grow: 1;
   }

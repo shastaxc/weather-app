@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -102,7 +101,7 @@ export class LocationSelectionComponent implements OnInit {
           // Otherwise, return remaining results
           this._results.next(filteredData);
         },
-        (err: HttpErrorResponse) => {
+        () => {
           // Handle error
         }
       );
