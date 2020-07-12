@@ -12,8 +12,10 @@ export class WeatherController {
   constructor(private weatherService: WeatherService) {}
 
   @Get('/:locationName')
-  getWeatherData(@Param('locationName') locationName: string): Observable<IWeatherSearchResponse> {
+  getWeatherData(@Param('locationName') searchStr: string): Observable<IWeatherSearchResponse> {
     this.logger.debug(`Received weather request.`);
+    // Clean input of invalid format
+    const locationName = this.weatherService.cleanSearchStr(searchStr);
     // Search OWM Location data for matches
     const locations: IOpenWeatherMapsLocation[] = this.weatherService.findLocation(locationName);
     // If no results, call OWM API using city name

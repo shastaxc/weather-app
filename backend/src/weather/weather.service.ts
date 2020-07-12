@@ -6,6 +6,7 @@ import { Observable, throwError, of } from 'rxjs';
 import { IWeatherData, IOpenWeatherMapsLocation, IWeatherSearchResults, ILocationWeatherPair } from 'src/common/models/weather.model';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { valueExists } from 'src/common/util/helper-fns';
 
 @Injectable()
 export class WeatherService {
@@ -19,7 +20,6 @@ export class WeatherService {
   }
 
   getWeatherByName(locationName: string): Observable<IWeatherData[]> {
-    // TODO: If string contains a comma, truncate starting at comma
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=${OPEN_WEATHER_KEY}`).pipe(
       map((response: AxiosResponse<IWeatherData>) => [response.data]),
       catchError((err: any) => {
@@ -41,7 +41,6 @@ export class WeatherService {
   }
 
   findLocation(nameToFind: string): IOpenWeatherMapsLocation[] {
-    // TODO: If string contains a comma, truncate starting at comma
     // Filter out non-matching city names
     return this.allLocations.filter((location: IOpenWeatherMapsLocation) => {
       return location.name.toLowerCase() === nameToFind.toLowerCase();
@@ -74,5 +73,17 @@ export class WeatherService {
       });
     }
     return pairs;
+  }
+
+  cleanSearchStr(searchStr: string): string {
+    // If string contains a comma, truncate starting at comma
+    const firstCommaIndex = searchStr.indexOf(',');
+    if (firstCommaIndex > -1) {
+      searchStr = searchStr.substring(0, firstCommaIndex);
+    }
+
+    // Remove trailing and leading whitespace
+    searchStr.trim();
+    return searchStr;
   }
 }
