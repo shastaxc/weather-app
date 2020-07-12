@@ -1,8 +1,8 @@
 import { Injectable, Logger, HttpService } from '@nestjs/common';
 import { OPEN_WEATHER_KEY } from 'src/common/constants/api-keys.const';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { AxiosResponse } from 'axios';
-import { Observable } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { IWeatherData, IOpenWeatherMapsLocation, IWeatherSearchResults, ILocationWeatherPair } from 'src/common/models/weather.model';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -21,6 +21,13 @@ export class WeatherService {
   getWeatherByName(locationName: string): Observable<IWeatherData[]> {
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=${OPEN_WEATHER_KEY}`).pipe(
       map((response: AxiosResponse<IWeatherData>) => [response.data]),
+      catchError((err: any) => {
+        return of([]);
+        // if (err === 'Error: Request failed with status code 404') {
+        //   return of([]);
+        // }
+        // return throwError(err);
+      })
     );
   }
 
@@ -28,7 +35,7 @@ export class WeatherService {
     const ids = locations.map((location: IOpenWeatherMapsLocation) => location.id);
     const idsStr = ids.join(',');
     return this.http.get(`https://api.openweathermap.org/data/2.5/group?id=${idsStr}&appid=${OPEN_WEATHER_KEY}`).pipe(
-      map((response: AxiosResponse<IWeatherSearchResults>) => response.data.list)
+      map((response: AxiosResponse<IWeatherSearchResults>) => response.data.list),
     );
   }
 

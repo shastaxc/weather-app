@@ -33,7 +33,6 @@ export class LocationSelectionComponent implements OnInit {
   submit(): void {
     this.weatherService.getWeather(this.locationControl.value).subscribe(
       (results: ILocationWeatherPair[]) => {
-        console.log('results', results);
         this.results = results;
       },
       (err: HttpErrorResponse) => {

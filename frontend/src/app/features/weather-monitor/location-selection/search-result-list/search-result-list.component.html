@@ -3,4 +3,8 @@
        *ngFor="let result of results">
     <sfwa-search-result [data]="result"></sfwa-search-result>
   </div>
+  <div class="result-container"
+       *ngIf="results.length === 0">
+    <sfwa-search-result [data]="null"></sfwa-search-result>
+  </div>
 </div>

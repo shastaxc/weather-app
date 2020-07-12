@@ -20,6 +20,9 @@ export class WeatherController {
     if (locations.length === 0) {
       return this.weatherService.getWeatherByName(locationName).pipe(
         map((weatherData: IWeatherData[]) => {
+          if (weatherData.length === 0) {
+            return [];
+          }
           const relatedLocation = this.weatherService.deriveLocationFromWeatherData(weatherData[0]);
           return this.weatherService.pairLocationWithWeather([relatedLocation], weatherData);
         }),

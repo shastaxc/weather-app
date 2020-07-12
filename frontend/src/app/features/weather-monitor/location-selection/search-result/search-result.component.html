@@ -1,8 +1,14 @@
 <div class="search-result">
-  <div class="d-flex flex-col flex-grow">
-    <span class="location-label">{{city}}, {{country}}</span>
-    <span>{{weatherDesc}}</span>
-  </div>
-  <!-- TODO: Add icon -->
-  <div class="add-icon">+</div>
+  <ng-container *ngIf="data; else showEmpty">
+    <div class="d-flex flex-col flex-grow">
+      <span class="location-label">{{city}}, {{country}}</span>
+      <span>{{weatherDesc}}</span>
+    </div>
+    <!-- TODO: Add icon -->
+    <div class="add-icon">+</div>
+  </ng-container>
 </div>
+
+<ng-template #showEmpty>
+  No results found
+</ng-template>

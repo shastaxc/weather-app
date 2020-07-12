@@ -3,7 +3,7 @@
   <div class="row-1">
     <strong class="flex-grow lavender">ADD A LOCATION</strong>
     <!-- TODO: Add icon here -->
-    <span class="lavender">Icon</span>
+    <i class="fas fa-location-arrow lavender"></i>
   </div>
   <div class="row-2">
     <input class="flex-grow"
@@ -11,7 +11,9 @@
            [formControl]="locationControl" />
     <!-- TODO: Add icon here -->
     <button class="submit-btn"
-            (click)="submit()">Search</button>
+            (click)="submit()">
+      <i class="fas fa-search"></i>
+    </button>
   </div>
 </form>
 <ng-container *ngIf="results">

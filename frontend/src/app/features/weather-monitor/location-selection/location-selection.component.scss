@@ -10,6 +10,7 @@
 .row-1 {
   display: flex;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .row-2 {
@@ -23,4 +24,12 @@
 .submit-btn {
   background-color: $lavender;
   color: white;
+  width: 45px;
+  height: 45px;
+}
+
+.search-results-container {
+  z-index: 1;
+  margin: 0 20px;
+  transform: translateY(-20px);
 }
