@@ -1,18 +1,22 @@
 <div class="page-container">
   <div class="content-container">
-    <h1>My Weather</h1>
+    <h1 class="title mb-5">My Weather</h1>
     <form class="login-form"
           [formGroup]="loginForm">
-      <label>EMAIL</label>
-      <input type="email"
+      <label class="small-label color-lavender mb-1">EMAIL</label>
+      <input class="mb-3"
+             type="email"
              [formControl]="emailControl"
              [autofocus]="true" />
-      <label>PASSWORD</label>
-      <input type="password"
+      <label class="small-label color-lavender mb-1">PASSWORD</label>
+      <input class="mb-4"
+             type="password"
              [formControl]="passwordControl" />
-      <button (click)="submit()">Log in</button>
+      <button class="round-btn fill-lavender color-white small-label mb-5"
+              (click)="submit()">Log in</button>
     </form>
-    Are you new here?
-    <a routerLink="/register">Sign up</a>
+    <span class="mb-3">Are you new here?</span>
+    <a class="round-btn border-lavender color-lavender small-label"
+       routerLink="/register">Sign up</a>
   </div>
 </div>

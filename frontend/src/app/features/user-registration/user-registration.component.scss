@@ -19,6 +19,11 @@
   max-width: 400px;
 }
 
+.title {
+  @include typography-display-2;
+  font-weight: bold;
+}
+
 .registration-form {
   display: flex;
   flex-direction: column;

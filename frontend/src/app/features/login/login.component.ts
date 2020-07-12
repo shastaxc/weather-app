@@ -45,10 +45,12 @@ export class LoginComponent implements OnInit {
     };
     this.authService.login(credentials).subscribe(
       (user: AppUser) => {
+        console.log('logged in', user);
         this.isProcessing = false;
         this.router.navigate(['/weather-monitor']);
       },
       (err: HttpErrorResponse) => {
+        console.log('error', err);
         this.isProcessing = false;
         // Handle errors
         // Trigger validation

@@ -4,6 +4,7 @@
 
   <div class="content-container">
     <sfwa-location-selection></sfwa-location-selection>
+    <!-- TODO: use grid layout for weather details. Use 2 columns for wider screens -->
     <div class="weather-details-container"
          *ngIf="(trackedData$ | async) as trackedData">
       <sfwa-weather-detail-card *ngFor="let data of trackedData"

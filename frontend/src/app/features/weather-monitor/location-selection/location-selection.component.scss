@@ -20,14 +20,14 @@ $location-search-padding: $location-search-padding-num + 0px;
   display: flex;
   margin-bottom: $location-search-padding;
   align-items: center;
+  .fa-location-arrow {
+    width: 45px;
+    flex-shrink: 0;
+  }
 }
 
 .row-2 {
   display: flex;
-}
-
-.lavender {
-  color: $lavender;
 }
 
 .search-input {

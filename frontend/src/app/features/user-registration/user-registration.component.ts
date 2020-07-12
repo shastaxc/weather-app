@@ -33,7 +33,7 @@ export class UserRegistrationComponent {
   private buildForm(): FormGroup {
     return new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      password: new FormControl(null, [Validators.required]),
     });
   }
 

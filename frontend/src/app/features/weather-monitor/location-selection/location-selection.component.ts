@@ -136,6 +136,6 @@ export class LocationSelectionComponent implements OnInit {
   }
 
   private closeResults(): void {
-    this.closeResults();
+    this._results.next(null);
   }
 }
