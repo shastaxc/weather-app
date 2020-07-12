@@ -1,9 +1,21 @@
 @import 'variables';
+@import 'breakpoints';
+@import 'mixins';
 
 .navbar {
-  display: flex;
+  @include typography-body-1;
+  background-color: $dark-grey;
+  height: 50px;
 }
 
 .nav-header {
   color: white;
+  margin: 0;
+}
+
+.content-container {
+  @include content-container($max-content-width);
+  display: flex;
+  height: 100%;
+  align-items: center;
 }

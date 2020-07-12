@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
-import { Routes } from './common/constants/route.constants';
+import { Routes } from './common/constants/route.const';
 
 @Controller(`${Routes.API_ROUTE}`)
 export class AppController {

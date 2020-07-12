@@ -1,5 +1,6 @@
 @import "breakpoints";
 @import "help-classes";
+@import "mixins";
 
 html,
 body {
@@ -9,9 +10,16 @@ body {
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  @include typography-body-1;
 }
 
 .no-scroll {
   overflow: hidden;
+}
+
+input {
+  padding: 15px;
+  border: none;
+  border-radius: 0;
+  outline: none;
 }

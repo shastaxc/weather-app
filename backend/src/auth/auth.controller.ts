@@ -2,7 +2,7 @@ import { Controller, UseGuards, Post, Request, Logger } from '@nestjs/common';
 import { User } from 'src/common/models/user.model';
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
-import { Routes } from 'src/common/constants/route.constants';
+import { Routes } from 'src/common/constants/route.const';
 
 @Controller(`${Routes.API_ROUTE}/auth`)
 export class AuthController {

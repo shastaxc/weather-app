@@ -2,7 +2,7 @@ import { Controller, Post, Body, Logger } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User, ICredentials, IAppUser } from 'src/common/models/user.model';
 import { Observable } from 'rxjs';
-import { Routes } from 'src/common/constants/route.constants';
+import { Routes } from 'src/common/constants/route.const';
 import { map } from 'rxjs/operators';
 
 @Controller(`${Routes.API_ROUTE}/user`)

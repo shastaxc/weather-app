@@ -1,0 +1,21 @@
+<form class="location-search-form"
+      [formGroup]="locationSearchForm">
+  <div class="row-1">
+    <strong class="flex-grow lavender">ADD A LOCATION</strong>
+    <!-- TODO: Add icon here -->
+    <span class="lavender">Icon</span>
+  </div>
+  <div class="row-2">
+    <input class="flex-grow"
+           type="text"
+           [formControl]="locationControl" />
+    <!-- TODO: Add icon here -->
+    <button class="submit-btn"
+            (click)="submit()">Search</button>
+  </div>
+</form>
+<ng-container *ngIf="results">
+  <div class="search-results-container">
+    <sfwa-search-result-list [results]="results"></sfwa-search-result-list>
+  </div>
+</ng-container>

@@ -5,11 +5,11 @@ import * as decodeJwt from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { API_ROUTE } from '../constants/routing.constants';
+import { Routes } from '../constants/routing.const';
 import { AppUser, ICredentials } from '../models/user.model';
 import { valueExists } from '../util/helper-fns';
 
-const ROUTE = `${API_ROUTE}/auth`;
+const ROUTE = `${Routes.API_ROUTE}/auth`;
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

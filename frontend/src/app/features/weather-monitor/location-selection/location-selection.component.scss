@@ -1,0 +1,26 @@
+@import 'variables';
+
+.location-search-form {
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-grey;
+  padding: 20px;
+}
+
+.row-1 {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.row-2 {
+  display: flex;
+}
+
+.lavender {
+  color: $lavender;
+}
+
+.submit-btn {
+  background-color: $lavender;
+  color: white;
+}

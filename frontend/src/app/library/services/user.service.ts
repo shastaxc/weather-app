@@ -4,10 +4,10 @@ import { plainToClass } from 'class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { API_ROUTE } from '../constants/routing.constants';
+import { Routes } from '../constants/routing.const';
 import { AppUser, IAppUser, ICredentials } from '../models/user.model';
 
-const ROUTE = `${API_ROUTE}/user`;
+const ROUTE = `${Routes.API_ROUTE}/user`;
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
