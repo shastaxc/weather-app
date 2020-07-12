@@ -5,22 +5,25 @@
     <i class="fas fa-location-arrow lavender"></i>
   </div>
   <div class="row-2">
-    <input class="flex-grow"
+    <input class="search-input"
            tabindex="0"
            type="text"
            [formControl]="locationControl"
            [autofocus]="true" />
     <button class="submit-btn"
-            (click)="submit()">
+            (click)="submit()"
+            #searchSubmitBtn>
       <i class="fas fa-search"></i>
     </button>
   </div>
 </form>
 <ng-container *ngIf="(results$ | async) as results">
   <div class="search-results-container"
-       (blur)="triggerBlur()">
+       #searchResultsContainer>
+    <div class="padding-spacer"></div>
     <sfwa-search-result-list [results]="results"
                              (selectedForTracking)="addToTracker($event)">
     </sfwa-search-result-list>
+    <div class="padding-spacer"></div>
   </div>
 </ng-container>

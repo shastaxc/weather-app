@@ -13,7 +13,7 @@
 }
 
 .content-container {
-  @include content-container($max-content-width);
+  @include content-container($min-content-width, $max-content-width);
   display: flex;
   flex-direction: column;
   max-width: 400px;

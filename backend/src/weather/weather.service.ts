@@ -19,6 +19,7 @@ export class WeatherService {
   }
 
   getWeatherByName(locationName: string): Observable<IWeatherData[]> {
+    // TODO: If string contains a comma, truncate starting at comma
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=${OPEN_WEATHER_KEY}`).pipe(
       map((response: AxiosResponse<IWeatherData>) => [response.data]),
       catchError((err: any) => {
@@ -40,6 +41,7 @@ export class WeatherService {
   }
 
   findLocation(nameToFind: string): IOpenWeatherMapsLocation[] {
+    // TODO: If string contains a comma, truncate starting at comma
     // Filter out non-matching city names
     return this.allLocations.filter((location: IOpenWeatherMapsLocation) => {
       return location.name.toLowerCase() === nameToFind.toLowerCase();

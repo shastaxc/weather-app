@@ -1,11 +1,16 @@
 @import 'variables';
 
+$location-search-max-width-num: 400;
+$location-search-max-width: $location-search-max-width-num + 0px;
+$location-search-padding-num: 20;
+$location-search-padding: $location-search-padding-num + 0px;
+
 .location-search-form {
   display: flex;
   flex-direction: column;
   background-color: $dark-grey;
-  padding: 20px;
-  max-width: 400px;
+  padding: $location-search-padding;
+  max-width: $location-search-max-width;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
@@ -13,7 +18,7 @@
 
 .row-1 {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: $location-search-padding;
   align-items: center;
 }
 
@@ -25,18 +30,30 @@
   color: $lavender;
 }
 
+.search-input {
+  flex-grow: 1;
+  box-sizing: border-box;
+  min-width: 145px;
+}
+
 .submit-btn {
   background-color: $lavender;
   color: white;
   width: 45px;
   height: 45px;
+  flex-shrink: 0;
 }
 
 .search-results-container {
+  display: flex;
   z-index: 1;
-  margin: 0 20px;
-  transform: translateY(-20px);
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  transform: translateY(-$location-search-padding);
+  max-width: $location-search-max-width;
+  .padding-spacer {
+    width: $location-search-padding;
+  }
+  sfwa-search-result-list {
+    flex-grow: 1;
+  }
 }

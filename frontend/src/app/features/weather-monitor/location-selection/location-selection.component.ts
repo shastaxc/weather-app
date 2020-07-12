@@ -1,8 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { withLatestFrom } from 'rxjs/operators';
 
 import { ILocationWeatherPair } from '@/library/models/weather.model';
 import { WeatherService } from '@/library/services/weather.service';
@@ -24,6 +24,33 @@ export class LocationSelectionComponent implements OnInit {
 
   get locationControl(): FormControl {
     return this.locationSearchForm.get('location') as FormControl;
+  }
+
+  @ViewChild('searchResultsContainer') searchResultsContainer: ElementRef;
+  get searchResultsContainerEl(): HTMLElement {
+    return this.searchResultsContainer?.nativeElement as HTMLElement;
+  }
+  @ViewChild('searchSubmitBtn') searchSubmitBtn: ElementRef;
+  get searchSubmitBtnEl(): HTMLElement {
+    return this.searchSubmitBtn?.nativeElement as HTMLElement;
+  }
+
+  // Close results container if it is showing and a click occurs outside of it
+  @HostListener('document:mousedown', ['$event'])
+  onGlobalClick(event: MouseEvent): void {
+    if (
+      this.searchResultsContainerEl &&
+      !this.searchResultsContainerEl.contains(event.target as Node)
+    ) {
+      this.closeResults();
+    }
+  }
+  // Close results container if it is showing and a Esc key is pressed
+  @HostListener('document:keyup.esc', ['$event'])
+  keyEvent(): void {
+    if (this.searchResultsContainerEl) {
+      this.closeResults();
+    }
   }
 
   constructor(private weatherService: WeatherService) {
@@ -68,7 +95,7 @@ export class LocationSelectionComponent implements OnInit {
 
           // If there are no results left after filtering, do not show any results
           if (filteredData.length === 0) {
-            this._results.next(null);
+            this.closeResults();
             return;
           }
 
@@ -90,7 +117,7 @@ export class LocationSelectionComponent implements OnInit {
 
     // If this was last value in results, set to null
     if (results.length === 1) {
-      this._results.next(null);
+      this.closeResults();
       return;
     }
 
@@ -108,7 +135,7 @@ export class LocationSelectionComponent implements OnInit {
     }
   }
 
-  triggerBlur(): void {
-    console.log('blurred');
+  private closeResults(): void {
+    this.closeResults();
   }
 }

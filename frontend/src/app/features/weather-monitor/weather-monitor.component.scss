@@ -11,7 +11,7 @@
 }
 
 .content-container {
-  @include content-container($max-content-width);
+  @include content-container($min-content-width, $max-content-width);
   padding-top: 30px;
   padding-bottom: 30px;
 }

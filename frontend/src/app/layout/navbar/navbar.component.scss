@@ -14,7 +14,7 @@
 }
 
 .content-container {
-  @include content-container($max-content-width);
+  @include content-container($min-content-width, $max-content-width);
   display: flex;
   height: 100%;
   align-items: center;
