@@ -2,10 +2,11 @@
 @import "help-classes";
 @import "mixins";
 
-html,
-body {
-  width: 100%;
+html {
   height: 100%;
+}
+body {
+  min-height: 100%;
   margin: 0;
 }
 
@@ -25,6 +26,7 @@ input {
 }
 
 button {
+  @include typography-button;
   outline: none;
   border: none;
   cursor: pointer;

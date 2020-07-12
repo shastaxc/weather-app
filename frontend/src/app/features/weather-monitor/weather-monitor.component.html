@@ -4,5 +4,11 @@
 
   <div class="content-container">
     <sfwa-location-selection></sfwa-location-selection>
+    <div class="weather-details-container"
+         *ngIf="(trackedData$ | async) as trackedData">
+      <sfwa-weather-detail-card *ngFor="let data of trackedData"
+                                [data]="data">
+      </sfwa-weather-detail-card>
+    </div>
   </div>
 </div>

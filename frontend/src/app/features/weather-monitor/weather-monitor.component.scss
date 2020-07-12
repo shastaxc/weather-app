@@ -5,13 +5,20 @@
 .page-container {
   width: 100%;
   height: 100%;
-  background-color: $light-grey;
+  min-height: 100vh;
+  background-color: $lightest-grey;
   color: black;
 }
 
 .content-container {
   @include content-container($max-content-width);
-  height: 100%;
   padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.weather-details-container {
+  margin-top: 30px;
   max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }

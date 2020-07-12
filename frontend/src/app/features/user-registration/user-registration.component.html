@@ -6,7 +6,8 @@
           [formGroup]="registrationForm">
       <label>ENTER YOUR EMAIL</label>
       <input type="email"
-             [formControl]="emailControl" />
+             [formControl]="emailControl"
+             [autofocus]="true" />
       <label>CHOOSE A PASSWORD</label>
       <input type="password"
              [formControl]="passwordControl" />

@@ -1,0 +1,18 @@
+<ng-container *ngIf="data; else showEmpty">
+  <div class="search-result"
+       (click)="addToTracker()">
+    <div class="d-flex flex-col flex-grow">
+      <span class="location-label">{{city}}, {{state}}</span>
+      <span>{{weatherDesc}}</span>
+    </div>
+    <div class="add-icon">
+      <i class="fas fa-plus"></i>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #showEmpty>
+  <div class="no-result">
+    No results found
+  </div>
+</ng-template>

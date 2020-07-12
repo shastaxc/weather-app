@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ILocationWeatherPair } from '@/library/models/weather.model';
 
@@ -9,4 +9,13 @@ import { ILocationWeatherPair } from '@/library/models/weather.model';
 })
 export class SearchResultListComponent {
   @Input() results: ILocationWeatherPair[];
+  @Output() selectedForTracking: EventEmitter<ILocationWeatherPair>;
+
+  constructor() {
+    this.selectedForTracking = new EventEmitter<ILocationWeatherPair>();
+  }
+
+  addToTracker(data: ILocationWeatherPair): void {
+    this.selectedForTracking.emit(data);
+  }
 }
