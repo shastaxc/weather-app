@@ -2,9 +2,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 import { AppUser, ICredentials } from '@/library/models/user.model';
 import { UserService } from '@/library/services/user.service';
+import { MyValidators } from '@/library/util/form-validators';
 
 @Component({
   selector: 'sfwa-user-registration',
@@ -14,8 +16,11 @@ import { UserService } from '@/library/services/user.service';
 export class UserRegistrationComponent {
   registrationForm: FormGroup;
   isProcessing: boolean;
+  private _alreadyRegisteredError: BehaviorSubject<boolean>;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+    this._alreadyRegisteredError = new BehaviorSubject<boolean>(false);
+  }
 
   get emailControl(): FormControl {
     return this.registrationForm.get('email') as FormControl;
@@ -32,7 +37,11 @@ export class UserRegistrationComponent {
 
   private buildForm(): FormGroup {
     return new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email,
+        MyValidators.boolMatch(this._alreadyRegisteredError, false),
+      ]),
       password: new FormControl(null, [Validators.required]),
     });
   }
@@ -51,7 +60,11 @@ export class UserRegistrationComponent {
       (err: HttpErrorResponse) => {
         this.isProcessing = false;
         // Handle errors
-        // Trigger validation
+        if (err.status === 409) {
+          this._alreadyRegisteredError.next(true);
+          this.emailControl.updateValueAndValidity();
+          this.passwordControl.updateValueAndValidity();
+        }
       }
     );
   }
