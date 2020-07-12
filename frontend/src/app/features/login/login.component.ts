@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       password: this.passwordControl.value,
     };
     this.authService.login(credentials).subscribe(
-      (user: AppUser) => {
+      () => {
         this.isProcessing = false;
         this._authenticationError.next(false);
         this.router.navigate(['/weather-monitor']);

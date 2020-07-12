@@ -53,7 +53,7 @@ export class UserRegistrationComponent {
       password: this.passwordControl.value,
     };
     this.userService.createUser(credentials).subscribe(
-      (user: AppUser) => {
+      () => {
         this.isProcessing = false;
         this.router.navigate(['/login']);
       },

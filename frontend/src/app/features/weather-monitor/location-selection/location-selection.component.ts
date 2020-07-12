@@ -102,7 +102,7 @@ export class LocationSelectionComponent implements OnInit {
           // Otherwise, return remaining results
           this._results.next(filteredData);
         },
-        (err: HttpErrorResponse) => {
+        () => {
           // Handle error
         }
       );
